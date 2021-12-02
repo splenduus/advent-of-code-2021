@@ -1,15 +1,15 @@
 verticalMovement = 0 
-horizontalMovement = 0
+depth = 0
 
 def moveSubmarine(direction, movement):
     global verticalMovement
-    global horizontalMovement
+    global depth
     if(direction == "forward"):
         verticalMovement+=movement
     elif(direction == "up"):
-        horizontalMovement-=movement
+        depth-=movement
     elif(direction == "down"):
-        horizontalMovement+=movement
+        depth+=movement
     return 
 
 def formatArray(file):
@@ -22,10 +22,10 @@ def formatArray(file):
 
 def main():
     global verticalMovement
-    global horizontalMovement
+    global depth
     array = formatArray("2dec/movement.txt")
     for i in array:
         moveSubmarine(i[0],int(i[1]))
-    print(verticalMovement*horizontalMovement)
+    print(verticalMovement*depth)
 
 main()
